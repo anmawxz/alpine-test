@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine.js Example</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.8.2/dist/alpine.min.js" defer></script> //defasado -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0c0c0c;
+        }
+
+        .button,
+        .buttonRect {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #f1ccdb;
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: black;
+            cursor: pointer;
+        }
+
+        .buttonRect {
+            width: 100px;
+            border-radius: 30px;
+        }
+
+        .buttonsDiv {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(219, 219, 219, 0.9);
+            border-radius: 30px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div x-data="{ open: false }">
+        <button class="buttonRect" @click="open = ! open">Exibir Botões</button>
+
+        <div x-show="open" @click.outside="open = false" class="buttonsDiv" x-data="{ count: 0 }">
+            <button class="button" @click="count += 1">1</button>
+            <button class="button" @click="count += 2">2</button>
+            <button class="button" @click="count += 3">3</button>
+            <button class="button" @click="count += 4">4</button>
+            <p class="button">=</p>
+            <p class="button" x-text="count"></p>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
